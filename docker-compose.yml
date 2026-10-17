@@ -1,0 +1,24 @@
+# WorkHR demo — single-service stack.
+# This is a frontend-only demo: there is no database and no backend service.
+# All app data lives in the visitor's browser (localStorage).
+#
+# Usage:
+#   cp .env.example .env   # optional — defaults work out of the box
+#   docker compose up -d --build
+#
+# App will be reachable at http://localhost:3000 (or your APP_URL).
+
+services:
+  app:
+    build: .
+    image: workhr-demo:latest
+    container_name: workhr-demo
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: ${PORT:-3000}
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    restart: unless-stopped

@@ -1,0 +1,29 @@
+# Dependencies — installed fresh inside the image
+node_modules
+**/node_modules
+
+# Build output — rebuilt inside the image
+.output
+dist
+dist-ssr
+.vinxi
+.tanstack
+.nitro
+.vercel
+.wrangler
+
+# VCS and local state
+.git
+.lovable
+
+# Secrets — never baked into the image
+.env
+.env.*
+!.env.example
+
+# Misc
+*.log
+logs
+Dockerfile
+docker-compose.yml
+.dockerignore
